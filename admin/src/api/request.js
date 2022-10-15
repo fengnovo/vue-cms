@@ -3,7 +3,7 @@ import axios from 'axios'
 import router from '../router'
 const http = axios.create({
   baseURL: process.env.VUE_APP_API_URL || '/',
-  // baseURL: 'http://localhost:3000',
+  // baseURL: 'http://localhost:3001',
   timeout: 60 * 1000
 })
 
