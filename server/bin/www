@@ -1,0 +1,44 @@
+#!/usr/bin/env node  // 表明是node可执行文件
+
+
+var app = require('../app');
+// 引入debuger模块，打印调试日志
+var debug = require('debug')('web-admin:server');
+var http = require('http');
+
+
+var port = process.env.PORT || '3000';
+app.set('port', port);
+
+var server = http.createServer(app);
+server.listen(port);
+
+server.on('error', onError);
+
+// 监听listening事件
+server.on('listening', () => {
+  var addr = server.address();
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+});
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
