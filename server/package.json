@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "nodemon ./bin/www",
+    "pm": "pm2 start ./bin/www --name vue-cms",
+    "restart": "pm2 restart ./bin/www --name vue-cms",
+    "stop": "pm2 delete vue-cms",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
