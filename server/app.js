@@ -4,8 +4,12 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var cors = require('cors')
 var logger = require('morgan')
+var compression = require('compression')
 
 var app = express()
+
+// 开启gzip
+app.use(compression())
 
 // 创建一个加密钥匙，用来创建token
 app.set('secret', 'keen')
@@ -39,6 +43,7 @@ app.use(cookieParser());
 app.use('/public', express.static(path.join(__dirname, 'public')))
 // 设置前端静态文件目录以及映射
 app.use('/', express.static(path.join(__dirname, '/Admin')))
+
 // 引入子路由文件
 require('./routes/index')(app)
 require('./routes/upload')(app)
