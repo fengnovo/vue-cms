@@ -9,7 +9,7 @@ module.exports = {
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       config.plugins.push(new CompressionWebpackPlugin({
-        test: /\.(js|css|html)$/i,
+        test: /\.js$|\.css$|\.html$|\.ttf$|\.eot$|\.woff$/,
         threshold: 4096, // 超过4KB就压缩
       }));
     }
