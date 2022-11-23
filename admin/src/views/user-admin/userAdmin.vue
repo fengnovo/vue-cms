@@ -2,7 +2,7 @@
   <div class="list-all">
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+      <el-breadcrumb-item>流程列表</el-breadcrumb-item>
     </el-breadcrumb>
     <div class="list-content">
       <div class="list-header">
@@ -10,7 +10,7 @@
           <el-form-item>
             <el-input
               v-model.trim="searchForm.userId"
-              placeholder="请输入用户Id"
+              placeholder="请输入流程Id"
               size="medium"
             ></el-input>
           </el-form-item>
@@ -38,14 +38,6 @@
       <div class="list-table">
         <el-table :data="tableData" style="width: 100%">
           <el-table-column type="index" width="50" />
-          <el-table-column label="图标" width="120">
-            <template slot-scope="scope">
-              <el-avatar :size="36" :src="scope.row.icon"></el-avatar>
-            </template>
-          </el-table-column>
-          <el-table-column label="文件地址" prop="icon" />
-          <el-table-column prop="userName" label="用户名" width="180" />
-          <!-- <el-table-column prop="passWord" label="密码" /> -->
           <el-table-column prop="_id" label="ID">
             <template slot-scope="scope">
               <a
@@ -55,6 +47,9 @@
               >
             </template>
           </el-table-column>
+          <el-table-column label="审批文件地址" prop="icon" />
+          <el-table-column prop="userName" label="当前审核人" width="180" />
+          <!-- <el-table-column prop="passWord" label="密码" /> -->
           <el-table-column label="编辑" width="200">
             <template slot-scope="scope">
               <el-button
@@ -152,8 +147,9 @@ export default {
       this.ininTableData();
     },
     addOpenBtn() {
-      this.dialogTitle = "添加人员";
-      this.dialogVisible = true;
+      // this.dialogTitle = "添加人员";
+      window.open("http://localhost:8080/#/layoutMain/pannel");
+      // this.dialogVisible = true;
     },
     closeDialog() {
       Object.assign(this.$data.listForm, this.$options.data().listForm);
