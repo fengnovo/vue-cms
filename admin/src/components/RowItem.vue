@@ -12,6 +12,7 @@
         v-for="(col, idx) in columns"
         :key="idx"
         colspan="100"
+        :width="col.width ? col.width + 'px' : '200px'"
         :style="{ 'text-align': col.align || 'center' }"
       >
         <td-item :col="col" :row="row" />
