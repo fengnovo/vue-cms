@@ -46,7 +46,15 @@
           <el-table-column label="文件地址" prop="icon" />
           <el-table-column prop="userName" label="用户名" width="180" />
           <!-- <el-table-column prop="passWord" label="密码" /> -->
-          <el-table-column prop="_id" label="ID" />
+          <el-table-column prop="_id" label="ID">
+            <template slot-scope="scope">
+              <a
+                href="http://localhost:8080/#/layoutMain/show1"
+                target="_blank"
+                >{{ scope.row._id }}</a
+              >
+            </template>
+          </el-table-column>
           <el-table-column label="编辑" width="200">
             <template slot-scope="scope">
               <el-button

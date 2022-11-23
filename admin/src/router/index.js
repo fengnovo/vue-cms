@@ -55,6 +55,11 @@ const routes = [
         name: 'svg',
         component: () => import('@/views/pannel/svg.vue')
       },
+      {
+        path: 'lowCode',
+        name: 'lowCode',
+        component: () => import('@/views/pannel/LowCode.vue')
+      },
     ]
   }
 ]

@@ -9,13 +9,15 @@
       collapse-transition
       router
     >
-      <el-menu-item index="userAdmin">管理员列表</el-menu-item>
-      <el-menu-item index="userManagement">用户管理</el-menu-item>
+      <el-menu-item index="userManagement">管理员列表</el-menu-item>
+      <!-- <el-menu-item index="userManagement">用户管理</el-menu-item> -->
       <el-menu-item index="userList">用户列表</el-menu-item>
+      <el-menu-item index="userAdmin">流程列表</el-menu-item>
       <el-menu-item index="pannel">流程图面板</el-menu-item>
-      <el-menu-item index="show1">流程初设数据面板</el-menu-item>
+      <!-- <el-menu-item index="show1">流程初设数据面板</el-menu-item> -->
       <el-menu-item index="show">流程图展示板</el-menu-item>
       <el-menu-item index="svg">svg测试</el-menu-item>
+      <el-menu-item index="LowCode">LowCode</el-menu-item>
     </el-menu>
   </div>
 </template>
